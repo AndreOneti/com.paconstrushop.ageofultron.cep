@@ -1,0 +1,19 @@
+{
+  "name": "com.paconstrushop.ageofultron.cep",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./bin/server.js"
+  },
+  "dependencies": {
+    "csvjson": "^5.1.0",
+    "express": "^4.17.1",
+    "node-correios": "^3.0.2",
+    "soap": "^0.30.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "nodemon": "^2.0.2"
+  }
+}

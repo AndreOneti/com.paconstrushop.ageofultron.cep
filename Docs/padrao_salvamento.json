@@ -1,0 +1,18 @@
+{
+  "Dados_no_aquivo": {
+    "PAC-1kg-69620000_69629999": {
+      "region": "AM",
+      "city": "Amatur\u00e1",
+      "start_zipcode": "69620000",
+      "end_zipcode": "69629999",
+      "weight": 0.001,
+      "maxWeigth": 1,
+      "term": 40,
+      "price": 70.51,
+      "table": "NORMAL",
+      "service": "PAC",
+      "update": "201912"
+    }
+  },
+  "Nome_do_arquivo": "Tipo_FaixaPeso_Data"
+}
