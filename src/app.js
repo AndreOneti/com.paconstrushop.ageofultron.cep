@@ -100,6 +100,22 @@ async function precoPrazo(args, region, pesoMin, pesoMax, start, end, city) {
     });
 }
 
+function secondsToDhms(seconds) {
+  seconds = Number(seconds / 1000);
+  var d = Math.floor(seconds / (3600 * 24));
+  var h = Math.floor(seconds % (3600 * 24) / 3600);
+  var m = Math.floor(seconds % 3600 / 60);
+  var s = Math.floor(seconds % 60);
+  var ms = Math.floor((seconds * 1000) % 1000);
+
+  var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+  var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " second, " : " seconds, ") : "0 seconds, ";
+  var msDisplay = ms > 0 ? ms + (ms == 1 ? " milisecond" : " miliseconds") : "0 miliseconds";
+  return dDisplay + hDisplay + mDisplay + sDisplay + msDisplay;
+}
+
 module.exports = function start(servico, pesoMin, pesoMax, estado) {
   var start = new Date();
   readFile('/home/lucas/Área de Trabalho/Andre/codes/com.paconstrushop.ageofultron.cep/default_locations.csv', 'utf-8', async (err, fileContent) => {
@@ -137,8 +153,8 @@ module.exports = function start(servico, pesoMin, pesoMax, estado) {
         ? "PAC"
         : servico[i] === '04014'
           ? "SEDEX"
-          : "indisponivel"}_${Math.floor(pesoMin)}kg_${pesoMax}kg_${new Date().toLocaleString().split(' ')[0].replace(/-/g, '')}`);
+          : "indisponivel"}_${estado}_${Math.floor(pesoMin)}kg_${pesoMax}kg`);
     }
-    console.info('> Execution time: %dms', new Date() - start);
+    console.info(`> Execution time: ${secondsToDhms(new Date() - start)}`);
   });
 };
